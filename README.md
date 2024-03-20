@@ -37,6 +37,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 
 6. **Make project directory**
     - Use following command to create a new directory for project files:
+
     ```bash
     mkdir project1
     ```
@@ -44,10 +45,12 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 7. **Clone the Repository:**
    - Clone your project repository onto the EC2 instance .
    - Use command to clone from git:
+
    ```bash
    git clone <repository_url> project1
    ```
    - Or use command from local machine's command prompt to upload from local machine [make sure that all the server code is within a directory called `/Server` within the root directory]:
+
    ```cmd
    scp -i <KEY-PAIR>.pem -r Server/* ec2-user@<PUBLIC-EC2-IP>:/home/ec2-user/project1
    ```
@@ -67,6 +70,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
      python3 main.py
      ```
     - You should see following output in command line upon successful run of the flask server:
+
     ```bash
     ====SERVER LIVE====
     ```
@@ -100,6 +104,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
     Note: The `x` represents the patch version number.
 
 2. Make a project directory:
+
     ```cmd
     mkdir project1
     ```
@@ -142,6 +147,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 
 1. **Install extra dependency**
     - Install BeautifulSoup via pip
+
     ```
     pip install beautifulsoup4
     ```
@@ -149,6 +155,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 2. **Usage**
 
     - Here's an example of how you can use the server:
+    
     ```python
     import requests
     from bs4 import BeautifulSoup
