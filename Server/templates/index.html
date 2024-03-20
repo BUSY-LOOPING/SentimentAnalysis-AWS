@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Powered by icon -->
+    <div class="powered-by">
+        Powered by
+    </div>
+
+    <!-- AWS icon -->
+    <div class="aws-icon">
+        <i class="fab fa-aws"></i>
+    </div>
+
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form action="/analyze" method="post" id="sentimentForm">
+            <label for="text">Enter text:</label><br>
+            <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Analyze">
+        </form>
+
+        {% if text %}
+            <h2>Sentiment</h2>
+            <p>Sentiment: {{ sentiment }}</p>
+            <p>Sentiment Scores:</p>
+            <ul>
+                {% for key, value in sentiment_score.items() %}
+                    <li>{{ key }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
+            
+        {% endif %}
+
+    </div>
+
+    <footer>
+        Made by Dhruv Yadav
+    </footer>
+
+    <!-- Font Awesome CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
