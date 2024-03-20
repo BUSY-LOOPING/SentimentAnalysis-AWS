@@ -67,7 +67,7 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 
         ```bash
         cd project1
-        python3 main.py
+        sudo python3 main.py
         ```
     - You should see following output in command line upon successful run of the flask server:
 
