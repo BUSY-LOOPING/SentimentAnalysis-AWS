@@ -28,52 +28,52 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
    - Once connected to your EC2 instance, install Git and Python 3.9 (if not already installed) using the package manager.
    - Use the following commands for Amazon Linux:
 
-     ```bash
-     sudo yum update
-     sudo yum install git
-     sudo yum install python3
-     sudo yum install python3-pip
-     ```
+        ```bash
+        sudo yum update
+        sudo yum install git
+        sudo yum install python3
+        sudo yum install python3-pip
+        ```
 
 6. **Make project directory**
     - Use following command to create a new directory for project files:
 
-    ```bash
-    mkdir project1
-    ```
+        ```bash
+        mkdir project1
+        ```
 
 7. **Clone the Repository:**
    - Clone your project repository onto the EC2 instance .
    - Use command to clone from git:
 
-   ```bash
-   git clone <repository_url> project1
-   ```
+        ```bash
+        git clone <repository_url> project1
+        ```
    - Or use command from local machine's command prompt to upload from local machine [make sure that all the server code is within a directory called `/Server` within the root directory]:
 
-   ```cmd
-   scp -i <KEY-PAIR>.pem -r Server/* ec2-user@<PUBLIC-EC2-IP>:/home/ec2-user/project1
-   ```
+        ```cmd
+        scp -i <KEY-PAIR>.pem -r Server/* ec2-user@<PUBLIC-EC2-IP>:/home/ec2-user/project1
+        ```
 
 8. **Install Dependencies:**
    - Navigate to the project directory and install the required dependencies using pip:
 
-     ```bash
-     sudo pip3 install -r requirements.txt
-     ```
+        ```bash
+        sudo pip3 install -r requirements.txt
+        ```
 
 9. **Run the Flask Server:**
    - Start the Flask server on the EC2 instance:
 
-     ```bash
-     cd project1
-     python3 main.py
-     ```
+        ```bash
+        cd project1
+        python3 main.py
+        ```
     - You should see following output in command line upon successful run of the flask server:
 
-    ```bash
-    ====SERVER LIVE====
-    ```
+        ```bash
+        ====SERVER LIVE====
+        ```
 
 9. **Access the Server:**
    - Access the Flask server in your web browser using the public IP address or public DNS name of your EC2 instance.
@@ -91,17 +91,17 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 
     - Once Python 3.9 is installed, you can verify the installation by opening a new command prompt or terminal window and running the following command:
 
-    ```cmd
-    python --version
-    ```
+        ```cmd
+        python --version
+        ```
 
-    If Python 3.9 is installed correctly, you should see an output similar to the following:
+    - If Python 3.9 is installed correctly, you should see an output similar to the following:
 
-    ```cmd
-    Python 3.9.x
-    ```
+        ```cmd
+        Python 3.9.x
+        ```
 
-    Note: The `x` represents the patch version number.
+        Note: The `x` represents the patch version number.
 
 2. Make a project directory:
 
@@ -148,29 +148,29 @@ If you want to deploy and run the Flask server on an AWS EC2 instance, follow th
 1. **Install extra dependency**
     - Install BeautifulSoup via pip
 
-    ```
-    pip install beautifulsoup4
-    ```
+        ```
+        pip install beautifulsoup4
+        ```
 
 2. **Usage**
 
     - Here's an example of how you can use the server:
-    
-    ```python
-    import requests
-    from bs4 import BeautifulSoup
 
-    url = 'http://127.0.0.1:80/analyze'
-    data = {'text': 'This is a great day!'}
-    response = requests.post(url, data=data)
+        ```python
+        import requests
+        from bs4 import BeautifulSoup
 
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-        sentiment = soup.find('p')
-        sentiment_scores = soup.find_all('li')
-        print(f"{sentiment.text}")
-        print(f'Sentiment Scores: \n {[senti_score.text for senti_score in sentiment_scores]}')
-        
-    else:
-        print("Error occurred while making the request.")
-    ```
+        url = 'http://127.0.0.1:80/analyze'
+        data = {'text': 'This is a great day!'}
+        response = requests.post(url, data=data)
+
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.text, 'html.parser')
+            sentiment = soup.find('p')
+            sentiment_scores = soup.find_all('li')
+            print(f"{sentiment.text}")
+            print(f'Sentiment Scores: \n {[senti_score.text for senti_score in sentiment_scores]}')
+            
+        else:
+            print("Error occurred while making the request.")
+        ```
